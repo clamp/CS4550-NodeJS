@@ -1,9 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var multer = require('multer');
 
 app.use('/assignments', express.static(__dirname + '/assignments'));
 app.use(bodyParser.json());
+app.use(multer());
+
 
 var courses = [
     { name: "Java 101", category: "PROG", dateCreated: "1/1/2015", description: "Wow" },

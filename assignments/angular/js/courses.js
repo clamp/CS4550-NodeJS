@@ -15,19 +15,12 @@ app.controller("OnlineUniversityController", function ($scope, $http) {
     };
 
     $scope.addCourse = function (newCourse) {
-        var obj = {
-            name: newCourse.name,
-            category: newCourse.category,
-            dateCreated: newCourse.dateCreated,
-            description: newCourse.description
-        };
-
-        $http.post('/api/course', obj)
+        $http.post('/api/course', newCourse)
             .success(function (response) {
                 $scope.crses = response;
             });
 
-        $scope.newCourse = { };
+        $scope.newCourse = {  };
     };
 
     $scope.confirmRemove = function (id) {
